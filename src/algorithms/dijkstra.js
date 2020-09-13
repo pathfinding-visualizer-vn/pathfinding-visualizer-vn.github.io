@@ -17,4 +17,5 @@ export default function dijkstra(grid, startNode, finishNode) {
       neighbor.previousNode = minNode;
     }
   }
+  return visitedNodesInOrder;
 }

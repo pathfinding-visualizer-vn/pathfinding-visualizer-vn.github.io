@@ -111,8 +111,6 @@ export default class PathfindingVisualizer extends Component {
     this.setState({ mouseIsPressed: false, specialNodePressed: "none" });
   }
 
-  updateStartNode() {}
-
   toggleInputs(disable = false) {
     const navbar = document.getElementById("navbar");
     const buttons = navbar.getElementsByTagName("button");
@@ -457,10 +455,8 @@ const createNewGridWithWallToggled = (grid, row, col) => {
 
 const createNewGridWithStartNodeToggled = (grid, row, col) => {
   const newGrid = grid.slice();
-
   const oldStartNode = newGrid[START_NODE_ROW][START_NODE_COL];
   oldStartNode.isStart = false;
-
   START_NODE_ROW = row;
   START_NODE_COL = col;
   const node = newGrid[row][col];
@@ -469,16 +465,13 @@ const createNewGridWithStartNodeToggled = (grid, row, col) => {
     isStart: true,
   };
   newGrid[row][col] = newNode;
-
   return newGrid;
 };
 
 const createNewGridWithFinishNodeToggled = (grid, row, col) => {
   const newGrid = grid.slice();
-
   const oldFinishNode = newGrid[FINISH_NODE_ROW][FINISH_NODE_COL];
   oldFinishNode.isFinish = false;
-
   const node = newGrid[row][col];
   const newNode = {
     ...node,
